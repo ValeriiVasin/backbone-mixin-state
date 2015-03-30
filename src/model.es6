@@ -20,10 +20,26 @@ export default Backbone.Model.extend({
       attrs[key] = Boolean(value);
     });
 
-    Backbone.Model.prototype.set.call(this, attrs, options);
+    return Backbone.Model.prototype.set.call(this, attrs, options);
   },
 
-  toggle() {
+  /**
+   * Toggle current value of attr
+   * @param  {String|Array} attrs     Attr(s) to toggle
+   * @param  {Object}      [options]  Options for setter, e.g. { silent: true }
+   * @return {Model}                  Model instance
+   */
+  toggle(attrs, options = {}) {
+    let attrsObj = {};
 
+    if (!_.isArray(attrs)) {
+      attrs = [attrs];
+    }
+
+    _.each(attrs, (attr) => {
+      attrsObj[attr] = !this.get(attr);
+    });
+
+    return this.set(attrsObj, options);
   }
 });

@@ -40,6 +40,7 @@ describe('State Model', () => {
       state.on('change:loading', spy);
 
       state.set('loading', 0);
+
       expect(spy.calls.count()).toBe(1);
     });
 
@@ -51,9 +52,50 @@ describe('State Model', () => {
 
       expect(spy).not.toHaveBeenCalled();
     });
+
+    it('returns model instance', () => {
+      expect(state.set('loading', true)).toBe(state);
+    });
   });
 
   describe('Toggle', () => {
+    beforeEach(() => {
+      state.set({
+        loading: true,
+        filled: false
+      });
+    })
 
+    it('toggles single attr', () => {
+      state.toggle('loading');
+
+      expect(state.get('loading')).toBe(false);
+    });
+
+    it('toggles few attrs', () => {
+      state.toggle(['loading', 'filled']);
+
+      expect(state.get('loading')).toBe(false);
+      expect(state.get('filled')).toBe(true);
+    });
+
+    it('allows provide setter options', () => {
+      let spy = jasmine.createSpy('loading');
+
+      state.on('change:loading', spy);
+      state.toggle('loading', { silent: true });
+
+      expect(state.get('loading')).toBe(false);
+      expect(spy).not.toHaveBeenCalled();
+    });
+
+    it('toggles previously not defined attr to `true`', () => {
+      state.toggle('non-existing');
+      expect(state.get('non-existing')).toBe(true);
+    });
+
+    it('returns model instance', () => {
+      expect(state.toggle('loading')).toBe(state);
+    });
   });
 });
