@@ -1,0 +1,43 @@
+{
+  "name": "backbone-subview",
+  "version": "1.0.0",
+  "description": "Backbone mixin for managing view states",
+  "main": "dist/subview.js",
+  "scripts": {
+    "start": "node ./node_modules/karma/bin/karma start",
+    "test": "node ./node_modules/karma/bin/karma start --single-run"
+  },
+  "author": "Valerii Vasin",
+  "license": "ISC",
+  "homepage": "https://github.com/ValeriiVasin/backbone-subview",
+  "dependencies": {},
+  "devDependencies": {
+    "backbone": "^1.1.2",
+    "jquery": "^2.1.3",
+    "underscore": "^1.8.2",
+    "babel": "^4.7.16",
+    "babel-core": "^4.7.4",
+    "babel-loader": "^4.1.0",
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-webpack": "^1.5.0",
+    "webpack": "^1.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ValeriiVasin/backbone-mixin-state"
+  },
+  "keywords": [
+    "backbone",
+    "mixin",
+    "state",
+    "view",
+    "modifier",
+    "classname",
+    "class",
+    "dependency",
+    "toggle"
+  ]
+}

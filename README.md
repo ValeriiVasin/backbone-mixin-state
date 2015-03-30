@@ -1,0 +1,55 @@
+# Backbone-mixin-state
+Backbone mixin that helps you to easily manage you component state.
+
+# Installation
+NPM
+```sh
+npm install backbone-mixin-state --save
+```
+
+Bower
+```sh
+bower install backbone-mixin-state --save
+```
+
+# State Model
+
+* Usual Backbone model
+* Provided value will always be converted to boolean
+* Contains convenience methods like .toggle()
+
+```js
+// model examples
+```
+
+# View mixin
+TBD
+
+# Example
+```js
+var MyView = Backbone.View.extend({
+  events: {
+    click: 'changeLoadingState'
+  }
+
+  state: {
+    'loading': 'view-loading',
+    'filled': 'view-filled',
+    'filled .inner__block': 'inner__block-filled'
+  },
+
+  defaultStates: {
+    loading: true,
+    filled: false
+  }
+
+  initialize: function() {
+    this.state = this.initStates();
+  },
+
+  changeLoadingState: function() {
+    this.state.set({ loading: false });
+    this.state.toggle('filled');
+  }
+})
+```
