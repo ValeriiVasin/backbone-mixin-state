@@ -32,13 +32,13 @@ var MyView = Backbone.View.extend({
     click: 'changeLoadingState'
   }
 
-  state: {
+  states: {
     'loading': 'view-loading',
     'filled': 'view-filled',
     'filled .inner__block': 'inner__block-filled'
   },
 
-  defaultStates: {
+  statesDefaults: {
     loading: true,
     filled: false
   }
