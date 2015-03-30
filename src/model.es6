@@ -10,9 +10,8 @@ export default Backbone.Model.extend({
       attrs = key;
       options = value;
     } else {
-      attrs = {
-        [key]: value
-      };
+      attrs = {};
+      attrs[key] = value;
     }
 
     // convert to booleans
