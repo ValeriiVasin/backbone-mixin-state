@@ -18,10 +18,6 @@ bower install backbone-mixin-state --save
 * Provided value will always be converted to boolean
 * Contains convenience methods like .toggle()
 
-```js
-// model examples
-```
-
 # View mixin
 TBD
 
