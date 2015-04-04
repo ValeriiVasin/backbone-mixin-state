@@ -1,0 +1,11 @@
+.button__pause {
+  display: none;
+}
+
+.button-pause .button__pause {
+  display: block;
+}
+
+.button-pause .button__play {
+  display: none;
+}
