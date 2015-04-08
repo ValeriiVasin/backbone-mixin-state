@@ -2,7 +2,7 @@
   "name": "backbone-mixin-state",
   "version": "1.0.0",
   "description": "Backbone mixin for managing view states",
-  "main": "dist/subview.js",
+  "main": "dist/view_mixin.js",
   "scripts": {
     "start": "node ./node_modules/karma/bin/karma start",
     "test": "node ./node_modules/karma/bin/karma start --single-run",
@@ -45,6 +45,8 @@
     "classname",
     "class",
     "dependency",
-    "toggle"
+    "toggle",
+    "suit",
+    "bem"
   ]
 }
