@@ -1,23 +1,27 @@
 {
-  "name": "backbone-subview",
+  "name": "backbone-mixin-state",
   "version": "1.0.0",
   "description": "Backbone mixin for managing view states",
   "main": "dist/subview.js",
   "scripts": {
     "start": "node ./node_modules/karma/bin/karma start",
     "test": "node ./node_modules/karma/bin/karma start --single-run",
-    "dist": "node ./node_modules/browserify/bin/cmd.js src/view_mixin.es6 -t babelify -o dist/view_mixin.js -u jquery -u backbone -u underscore --standalone view_mixin"
+
+    "dist": "npm run dist-model && npm run dist-view",
+    "dist-view": "node ./node_modules/browserify/bin/cmd.js src/view_mixin.es6 -t babelify -o dist/view_mixin.js --exclude backbone --exclude underscore --standalone StateViewMixin",
+    "dist-model": "node ./node_modules/browserify/bin/cmd.js src/model.es6 -t babelify -o dist/model.js --exclude backbone --exclude underscore --standalone StateModel"
   },
   "author": "Valerii Vasin",
   "license": "ISC",
-  "homepage": "https://github.com/ValeriiVasin/backbone-subview",
-  "dependencies": {},
+  "homepage": "https://github.com/ValeriiVasin/backbone-mixin-state",
+  "dependencies": {
+    "backbone": "^1.1.2"
+  },
   "devDependencies": {
     "babel": "^4.7.16",
     "babel-core": "^4.7.4",
     "babel-loader": "^5.0.0",
     "babelify": "^5.0.4",
-    "backbone": "^1.1.2",
     "browserify": "^9.0.3",
     "jasmine-core": "^2.2.0",
     "jquery": "^2.1.3",
