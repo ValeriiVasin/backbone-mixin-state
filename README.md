@@ -32,7 +32,7 @@ module.exports = View;
 # Example
 ```js
 var View = require('lib/view');
-var StateModel = require('backbone-mixin-state/model');
+var StateModel = require('backbone-mixin-state/dist/model');
 
 var MyView = View.extend({
   events: {
