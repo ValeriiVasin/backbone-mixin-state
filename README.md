@@ -1,5 +1,5 @@
 # Backbone-mixin-state
-Backbone mixin that helps you to easily manage you component state.
+Backbone mixin that helps you easily manage you view states.
 
 # Installation
 NPM
@@ -18,12 +18,12 @@ bower install backbone-mixin-state --save
 * Provided value will always be converted to boolean
 * Contains convenience methods like .toggle()
 
-# View mixin
-Add `StateView` mixin to you core view.
+# Add view mixin
+Add `StateViewMixin` mixin to you core view.
 
 ```js
 // lib/view.js
-var StateView = require('backbone-mixin-state');
+var StateViewMixin = require('backbone-mixin-state');
 var View = Backbone.View.extend(StateView);
 
 module.exports = View;
