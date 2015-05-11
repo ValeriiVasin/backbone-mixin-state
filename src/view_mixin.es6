@@ -40,11 +40,23 @@ export default {
       let state = split.shift();
       let selector = split.join(' ');
 
-      if (selector) {
-        this.$(selector).toggleClass(className, stateModel.get(state));
-      } else {
-        this.$el.toggleClass(className, stateModel.get(state));
+      // global component state
+      if (!selector) {
+        this.$el.toggleClass(
+          className,
+          Boolean(stateModel.get(state))
+        );
+
+        return this;
       }
+
+      // internal component state
+      this.$(selector).toggleClass(
+        className,
+        Boolean(stateModel.get(state))
+      );
+
+      return this;
     });
   }
 };

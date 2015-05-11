@@ -44,11 +44,17 @@ module.exports = {
       var state = split.shift();
       var selector = split.join(" ");
 
-      if (selector) {
-        _this.$(selector).toggleClass(className, stateModel.get(state));
-      } else {
-        _this.$el.toggleClass(className, stateModel.get(state));
+      // global component state
+      if (!selector) {
+        _this.$el.toggleClass(className, Boolean(stateModel.get(state)));
+
+        return _this;
       }
+
+      // internal component state
+      _this.$(selector).toggleClass(className, Boolean(stateModel.get(state)));
+
+      return _this;
     });
   }
 };
