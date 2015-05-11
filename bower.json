@@ -1,0 +1,31 @@
+{
+  "name": "backbone-mixin-state",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ValeriiVasin/backbone-mixin-state",
+  "authors": [
+    "Valerii Vasin <valerii.vasin@gmail.com>"
+  ],
+  "description": "Backbone mixin for managing view states",
+  "main": "dist/view_mixin.js",
+  "keywords": [
+    "backbone",
+    "mixin",
+    "state",
+    "view",
+    "modifier",
+    "classname",
+    "class",
+    "dependency",
+    "toggle",
+    "suit",
+    "bem"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
