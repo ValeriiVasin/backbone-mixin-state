@@ -2,3 +2,5 @@ example
 src
 node_modules
 spec
+karma.conf.js
+.travis.yml
