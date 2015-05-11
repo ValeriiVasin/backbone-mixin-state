@@ -19,19 +19,35 @@ bower install backbone-mixin-state --save
 * Contains convenience methods like .toggle()
 
 # View mixin
-TBD
+Add `StateView` mixin to you core view.
+
+```js
+// lib/view.js
+var StateView = require('backbone-mixin-state');
+var View = Backbone.View.extend(StateView);
+
+module.exports = View;
+```
 
 # Example
 ```js
-var MyView = Backbone.View.extend({
-  events: {
-    click: 'changeLoadingState'
-  }
+var View = require('lib/view');
+var StateModel = require('backbone-mixin-state/model');
 
+var MyView = View.extend({
+  events: {
+    'click .js-change-loading': 'changeLoadingState',
+    'click .js-toggle-filled': 'toggleFilledState'
+  },
+
+  // required field that contains states definition
   states: {
+    // root element states
     'loading': 'view-loading',
     'filled': 'view-filled',
-    'filled .inner__block': 'inner__block-filled'
+
+    // child element state
+    'filled .inner__block': 'is-filled'
   },
 
   statesDefaults: {
@@ -40,11 +56,16 @@ var MyView = Backbone.View.extend({
   }
 
   initialize: function() {
-    this.state = this.initStates();
+    this.states = this.initStates(
+      new StateModel(this.statesDefaults);
+    );
   },
 
   changeLoadingState: function() {
     this.state.set({ loading: false });
+  },
+
+  toggleFilledState: function() {
     this.state.toggle('filled');
   }
 })

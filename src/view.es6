@@ -1,28 +1,27 @@
-import StateModel from './model.es6';
 import _ from 'underscore';
 
 /**
  * @todo Optimize state update
  */
 export default {
-  initStates() {
-    let defaults = _.extend(this._statesFromClasses(), this.statesDefaults || {});
+  initStates(stateModel) {
+    let defaults = _.extend(this._statesFromClassNames(), stateModel.toJSON());
 
-    this.__state = new StateModel(defaults);
+    stateModel.set(defaults);
 
-    this.listenTo(this.__state, 'change', this.updateStates);
+    this.listenTo(stateModel, 'change', this._updateStates);
 
     // set initial states
-    this.updateStates();
+    this._updateStates(stateModel);
 
-    return this.__state;
+    return stateModel;
   },
 
   /**
    * Return all states from classnames as `false` values
    * @return {Object} { [state]: false }
    */
-  _statesFromClasses() {
+  _statesFromClassNames() {
     return _.chain(this.states || {})
       .keys()
       .reduce((memo, key) => {
@@ -35,16 +34,16 @@ export default {
       .value();
   },
 
-  updateStates() {
+  _updateStates(stateModel) {
     _.each(this.states, (className, stateWithSelector) => {
       let split = stateWithSelector.split(' ');
       let state = split.shift();
       let selector = split.join(' ');
 
       if (selector) {
-        this.$(selector).toggleClass(className, this.__state.get(state));
+        this.$(selector).toggleClass(className, stateModel.get(state));
       } else {
-        this.$el.toggleClass(className, this.__state.get(state));
+        this.$el.toggleClass(className, stateModel.get(state));
       }
     });
   }
