@@ -53,7 +53,7 @@ var MyView = View.extend({
   statesDefaults: {
     loading: true,
     filled: false
-  }
+  },
 
   initialize: function() {
     this.states = this.initStates(
@@ -68,5 +68,5 @@ var MyView = View.extend({
   toggleFilledState: function() {
     this.state.toggle('filled');
   }
-})
+});
 ```

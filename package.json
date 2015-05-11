@@ -11,6 +11,8 @@
     "dist-view": "node ./node_modules/browserify/bin/cmd.js src/view_mixin.es6 -t babelify -o dist/view_mixin.js --exclude backbone --exclude underscore --standalone StateViewMixin",
     "dist-model": "node ./node_modules/browserify/bin/cmd.js src/model.es6 -t babelify -o dist/model.js --exclude backbone --exclude underscore --standalone StateModel",
 
+    "example": "cd example; webpack -w;",
+
     "prepublish": "npm run dist"
   },
   "author": "Valerii Vasin",
