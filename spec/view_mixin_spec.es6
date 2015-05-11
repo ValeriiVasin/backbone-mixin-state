@@ -1,6 +1,6 @@
 'use strict';
 
-import ViewMixin from '../src/view.es6';
+import ViewMixin from '../src/view_mixin.es6';
 import StateModel from '../src/model.es6';
 import Backbone from 'backbone';
 import $ from 'jquery';
