@@ -62,10 +62,13 @@ var MyView = View.extend({
   },
 
   changeLoadingState: function() {
+    // => this.$el.removeClass('view-loading');
     this.state.set({ loading: false });
   },
 
   toggleFilledState: function() {
+    // this.$el.addClass('view-filled');
+    // this.$('.inner__block').addClass('is-filled');
     this.state.toggle('filled');
   }
 });
