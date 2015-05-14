@@ -56,7 +56,7 @@ var MyView = View.extend({
   },
 
   initialize: function() {
-    this.states = this.initStates(
+    this.state = this.initStates(
       new StateModel(this.statesDefaults);
     );
   },
